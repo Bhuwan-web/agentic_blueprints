@@ -1,0 +1,4 @@
+name: ecosystem-python-3.11-pypi
+description: Installs Python 3.11 if it is not already present in the runner environment.
+version: 1.0.0
+author: Cascade
