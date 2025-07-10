@@ -76,7 +76,7 @@ async def generate_blueprint(ctx:RunContext[Technology]):
             "name": f"{ctx.deps.language}-{ctx.deps.version}-{ctx.deps.package_manager}",
             "version": "1.0.0",
             "description": f"Installs {ctx.deps.language} {ctx.deps.version} if it is not already present in the runner environment.",
-            "author": "Cascade"
+            "author": "Bhuwan"
         }
         content = await json_to_yaml(content_json)
         
