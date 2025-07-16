@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-PYTHON_VERSION="3.11.13"
+PYTHON_VERSION="3.9.23"
 INSTALL_PREFIX="/usr/local"
 
 command_exists() {
@@ -36,6 +36,8 @@ if command_exists apk; then
   # Create and activate virtual environment in Alpine
   echo "Setting up virtual environment..."
   python3 -m venv /venv
+
+
   python3 --version
 
   echo "Python $PYTHON_VERSION installed on Alpine with virtual environment activated."
@@ -45,7 +47,7 @@ elif command_exists apt-get; then
   apt-get update
   apt-get install -y build-essential libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev zlib1g-dev wget
 
-  # download, build, install Python 3.11.13
+  # download, build, install Python 3.9.23
   wget "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz"
   tar -xzf "Python-${PYTHON_VERSION}.tgz"
   cd "Python-${PYTHON_VERSION}"
@@ -60,8 +62,10 @@ elif command_exists apt-get; then
   apt-get install -y python3-pip python3-venv
 
   python3 -m venv /venv
- 
+
   python3 --version
+
+
 else
   echo "Unsupported OS or package manager. Please install Python $PYTHON_VERSION manually."
   exit 1

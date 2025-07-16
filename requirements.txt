@@ -1,0 +1,4 @@
+pydantic-ai
+ddgs>=3.0.0
+pyyaml
+docker>=6.0.0

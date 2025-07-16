@@ -5,6 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "ddgs>=9.0.1",
+    "docker>=7.1.0",
     "pydantic-ai>=0.4.1",
+    "pydantic-ai-slim[duckduckgo]>=0.4.1",
     "pyyaml>=6.0.2",
 ]
