@@ -1,4 +1,5 @@
-pydantic-ai
-ddgs>=3.0.0
-pyyaml
+pydantic>=2.0.0
+pydantic-ai>=0.1.0
 docker>=6.0.0
+PyYAML>=6.0
+ddgs>=0.1.0

@@ -1,69 +1,74 @@
-# Technology Setup Blueprint Generator
+# Blueprint Generator
 
-## 🌟 Introduction
-Welcome to the Technology Setup Blueprint Generator! This tool helps you generate Docker setup blueprints for various technology stacks. It creates the necessary configuration files and setup scripts to containerize your applications with the specified technology stack, version, and package manager.
+A tool for generating and validating technology installation blueprints.
 
-## 🎯 Project Scope
-This project provides automated generation of Docker setup configurations for different technology stacks, including:
+## Overview
 
-- Language version management
-- Package manager setup
-- Base image optimization (supports both Alpine and Debian)
-- Dependency management
+Blueprint Generator is a multi-agent system that creates, validates, and fixes installation scripts for various technologies. It uses AI agents to:
 
-## 🛠️ Installation
+1. Generate installation scripts (`run.sh`) for specified technologies
+2. Validate the scripts by running them in Docker containers
+3. Fix any issues that arise during validation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/agentic_blueprints.git
-   cd agentic_blueprints
-   ```
+## Architecture
 
-2. Set up your environment using UV (recommended):
-   ```bash
-   uv pip install -r requirements.txt
-   ```
+The system uses a multi-agent architecture with three main components:
 
-## 🚀 Usage
+1. **Blueprint Agent**: Generates initial installation scripts
+2. **Validator Agent**: Validates and fixes installation scripts
+3. **Router Agent**: Orchestrates the workflow between agents
 
-Generate a new technology setup by running:
+## Installation
 
 ```bash
-python main.py <technology> <version> <package-manager>
+# Clone the repository
+git clone https://github.com/yourusername/blueprint-generator.git
+cd blueprint-generator
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-### Examples:
+## Usage
 
-1. For Python 3.13 with PyPI:
-   ```bash
-   python main.py python 3.13 pypi
-   ```
+```bash
+# Generate a blueprint for Python 3.11 with PyPI
+python main.py python 3.11 pypi
 
-2. For Node.js 18 with npm:
-   ```bash
-   python main.py node 18 npm
-   ```
+# Generate a blueprint for Node.js 18 with NPM
+python main.py node 18 npm
 
-## 📂 Output Structure
-For each technology setup, the generator creates:
-- `run.sh`: Main setup script for the specified technology
-- `blueprint.yml`: Configuration file with metadata about the setup
+# Generate a blueprint for Java 21 with Maven
+python main.py java 21 maven
+```
 
-## 🔧 Customization
-You can find the generated files in the `setup/` directory, organized by technology, version, and package manager. Feel free to modify these files to suit your specific needs.
+## Project Structure
 
-## 💡 Purpose
-This tool aims to:
-- Streamline the process of setting up development environments
-- Ensure consistent configurations across different projects
-- Support multiple technology versions and package managers
-- Provide a solid foundation for containerized applications
+```
+.
+├── agents.py         # Agent definitions
+├── config.py         # Configuration settings
+├── examples/         # Example scripts
+├── main.py           # Command-line interface
+├── models.py         # Data models
+├── setup/            # Generated blueprints
+├── tools.py          # Agent tools
+└── utils.py          # Utility functions
+```
 
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## How It Works
 
-## 🤝 Contributing
-Contributions are welcome! Please feel free to submit issues and enhancement requests.
+1. The user specifies a technology, version, and package manager
+2. The router agent initiates the blueprint generation process
+3. The blueprint agent creates an installation script
+4. The script is validated in a Docker container
+5. If validation fails, the validator agent attempts to fix the script
+6. The process repeats until success or the maximum number of attempts is reached
 
-## ✨ Getting Help
-If you encounter any issues or have questions, please open an issue in the repository.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
